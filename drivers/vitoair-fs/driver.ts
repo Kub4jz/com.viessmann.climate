@@ -62,15 +62,8 @@ class VitoAirFsDriver extends OAuth2Driver {
 
                 let params: any = {};
                 if (args.duration != null) {
-                    let duration = args.duration / 60000;
-
-                    if (duration > 1440) {
-                        duration = 1440;
-                    }
-
-                    if (duration > 1) {
-                        params['timeout'] = duration;
-                    }
+                    // Flow duration is in ms, API expects whole minutes (1-1440)
+                    params['timeout'] = Math.min(1440, Math.max(1, Math.round(args.duration / 60000)));
                 }
 
                 this.log(`Starting quick mode "${args.mode.id}" with duration ${params.timeout || 0} minutes`);

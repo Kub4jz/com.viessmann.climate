@@ -10,6 +10,7 @@ export class ViessmannDevice extends OAuth2Device<ViessmannOAuth2Client> {
 
     deviceId: ViessmannDeviceId|undefined = undefined;
     interval: NodeJS.Timeout|undefined;
+    syncTimeout: NodeJS.Timeout|undefined;
     features: DeviceFeatures = {};
 
     /**
@@ -118,11 +119,11 @@ export class ViessmannDevice extends OAuth2Device<ViessmannOAuth2Client> {
             this.homey.clearTimeout(this.interval);
         }
 
-        let updateInterval = await this.homey.settings.get('polling') || ViessmannDevice.DEFAULT_SYNC_INTERVAL;
+        const polling = parseInt(this.homey.settings.get('polling'), 10);
+        const updateInterval = Number.isFinite(polling) && polling > 0 ? polling : ViessmannDevice.DEFAULT_SYNC_INTERVAL;
         this.log("Using an update interval of " + updateInterval + " minutes");
-        updateInterval *= 60000;
 
-        this.interval = this.homey.setInterval(this.sync.bind(this), updateInterval);
+        this.interval = this.homey.setInterval(this.sync.bind(this), updateInterval * 60000);
     }
 
     getFeatureValue(featureName: string) {
@@ -141,34 +142,30 @@ export class ViessmannDevice extends OAuth2Device<ViessmannOAuth2Client> {
         const command = this.getFeatureCommand(featureName, commandName);
 
         if (command === undefined) {
-            this.error('Feature ' + featureName + ' command ' + commandName + ' not found.');
-
-            return;
+            throw new Error('Feature ' + featureName + ' command ' + commandName + ' not found');
         }
 
         if (!command.isExecutable) {
-            this.error('Unable to trigger feature ' + featureName + ' command ' + commandName + ' as it is not executable');
+            throw new Error('Feature ' + featureName + ' command ' + commandName + ' is not executable');
         }
 
         try {
-            this.oAuth2Client.triggerFeatureCommand(command, params)
-                .then(() => {
-                    // Delay force sync
-                    setTimeout(this.forceSync.bind(this), 4000);
-                });
+            await this.oAuth2Client.triggerFeatureCommand(command, params);
         } catch (e) {
             this.error('Unable to trigger feature ' + featureName + ' command ' + commandName + ' due to ' + e);
 
             throw e;
         }
+
+        // Delay the sync so the API has time to reflect the new state
+        if (this.syncTimeout) {
+            this.homey.clearTimeout(this.syncTimeout);
+        }
+        this.syncTimeout = this.homey.setTimeout(() => this.forceSync().catch(this.error.bind(this)), 4000);
     }
 
     getFeatureCommand(featureName: string, commandName: string): Command|undefined {
-        try {
-            return this.features[featureName]['commands'][commandName];
-        } catch (e) {
-            this.error('Unable to get feature ' + featureName + ' command ' + commandName + ' due to ' + e);
-        }
+        return this.features[featureName]?.commands?.[commandName];
     }
 
     hasFeature(featureName: string) {
