@@ -1,0 +1,24 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Frost protection"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "values": [
+    {
+      "id": "on",
+      "title": {
+        "en": "On"
+      }
+    },
+    {
+      "id": "off",
+      "title": {
+        "en": "Off"
+      }
+    }
+  ],
+  "icon": "/assets/icons/frost.svg"
+}

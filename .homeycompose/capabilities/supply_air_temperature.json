@@ -1,0 +1,11 @@
+{
+  "type": "number",
+  "title": { "en": "Minimum supply air temperature" },
+  "uiComponent": null,
+  "getable": true,
+  "setable": false,
+  "units": { "en": "°C" },
+  "min": 3,
+  "max": 37,
+  "step": 1
+}

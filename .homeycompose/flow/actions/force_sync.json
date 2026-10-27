@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "Force refresh"
+  },
+  "titleFormatted": {
+    "en": "Force refresh values from server"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=vitoair-fs"
+    }
+  ]
+}

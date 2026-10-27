@@ -1,0 +1,22 @@
+{
+  "title": {
+    "en": "Stop Quick Mode"
+  },
+  "titleFormatted": {
+    "en": "Stop [[mode]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=vitoair-fs"
+    },
+    {
+      "name": "mode",
+      "title": {
+        "en": "Quick mode"
+      },
+      "type": "autocomplete"
+    }
+  ]
+}

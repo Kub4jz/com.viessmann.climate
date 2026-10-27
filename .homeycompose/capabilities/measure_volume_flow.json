@@ -1,0 +1,11 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Air volume flow"
+  },
+  "units": {"en": "m³/h"},
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/icons/measure_volume_flow.svg"
+}

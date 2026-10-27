@@ -1,0 +1,25 @@
+{
+  "title": {
+    "en": "Active program !{{is|is not}}"
+  },
+  "titleFormatted": {
+    "en": "Active program !{{is|is not}} [[program]]"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=vitoair-fs"
+    },
+    {
+      "name": "program",
+      "title": {
+        "en": "Program"
+      },
+      "type": "autocomplete",
+      "placeholder": {
+        "en": "Select a program..."
+      }
+    }
+  ]
+}

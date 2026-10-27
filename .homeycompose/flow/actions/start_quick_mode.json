@@ -1,0 +1,23 @@
+{
+  "title": {
+    "en": "Run Quick Mode"
+  },
+  "titleFormatted": {
+    "en": "Run [[mode]]"
+  },
+  "duration": true,
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=vitoair-fs"
+    },
+    {
+      "name": "mode",
+      "title": {
+        "en": "Quick mode"
+      },
+      "type": "autocomplete"
+    }
+  ]
+}
