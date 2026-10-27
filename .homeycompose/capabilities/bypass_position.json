@@ -1,0 +1,12 @@
+{
+  "type": "number",
+  "title": { "en": "Bypass position" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "units": { "en": "%" },
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "icon": "/assets/icons/bypass.svg"
+}

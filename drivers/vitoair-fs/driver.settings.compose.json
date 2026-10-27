@@ -1,0 +1,15 @@
+[
+  {
+    "id": "pollution.alert.level",
+    "type": "number",
+    "label": {
+      "en": "Filter pollution alert level"
+    },
+    "value": 95,
+    "min": 0,
+    "max": 100,
+    "units": {
+      "en": "%"
+    }
+  }
+]

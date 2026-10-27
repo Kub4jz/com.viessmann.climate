@@ -1,0 +1,72 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Active program"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "values": [
+    {
+      "id": "schedule",
+      "title": {
+        "en": "Time program"
+      }
+    },
+    {
+      "id": "permanent",
+      "title": {
+        "en": "Constant"
+      }
+    },
+    {
+      "id": "ventilation",
+      "title": {
+        "en": "Ventilation"
+      }
+    },
+    {
+      "id": "sensorOverride",
+      "title": {
+        "en": "Automatic mode"
+      }
+    },
+    {
+      "id": "sensorDriven",
+      "title": {
+        "en": "Time program with sensor"
+      }
+    },
+    {
+      "id": "silent",
+      "title": {
+        "en": "Silent ventilation"
+      }
+    },
+    {
+      "id": "forcedLevelFour",
+      "title": {
+        "en": "Intensive ventilation"
+      }
+    },
+    {
+      "id": "temporaryShutdown",
+      "title": {
+        "en": "Temporary shutdown"
+      }
+    },
+    {
+      "id": "filterChange",
+      "title": {
+        "en": "Filter change"
+      }
+    },
+    {
+      "id": "standby",
+      "title": {
+        "en": "Off"
+      }
+    }
+  ],
+  "icon": "/assets/icons/operational_state.svg"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "com.viessmann.climate",
+  "version": "1.0.0",
+  "compatibility": ">=12.9.0",
+  "sdk": 3,
+  "brandColor": "#ff3e17",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Viessmann Ventilation"
+  },
+  "description": {
+    "en": "Adds support for Viessmann Vitoair FS units"
+  },
+  "category": [
+    "climate"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "permissions": [],
+  "author": {
+    "name": "Jakub H.",
+    "email": "kub4jz@gmail.com"
+  }
+}

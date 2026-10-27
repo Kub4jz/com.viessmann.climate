@@ -1,0 +1,48 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Operating mode"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "values": [
+    {
+      "id": "unknown",
+      "title": {
+        "en": "-"
+      }
+    },
+    {
+      "id": "standby",
+      "title": {
+        "en": "Off"
+      }
+    },
+    {
+      "id": "permanent",
+      "title": {
+        "en": "Constant"
+      }
+    },
+    {
+      "id": "ventilation",
+      "title": {
+        "en": "Time program"
+      }
+    },
+    {
+      "id": "sensorOverride",
+      "title": {
+        "en": "Time program with sensor"
+      }
+    },
+    {
+      "id": "sensorDriven",
+      "title": {
+        "en": "Sensor based"
+      }
+    }
+  ],
+  "icon": "/assets/icons/operational_state.svg"
+}

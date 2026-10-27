@@ -1,0 +1,27 @@
+{
+  "name": "com.viessmann.climate",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "libs": "libs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "homey:build": "homey app build",
+    "homey:run": "homey app run",
+    "homey:install": "homey app install"
+  },
+  "dependencies": {
+    "@badgateway/oauth2-client": "^2.4.2",
+    "homey-oauth2app": "^3.7.2",
+    "source-map-support": "0.5.21"
+  },
+  "devDependencies": {
+    "homey": "^3.9.8",
+    "@tsconfig/node22": "^22.0.5",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
+    "@types/node": "^22.19.1",
+    "@types/source-map-support": "0.5.10",
+    "typescript": "^5.9.3"
+  }
+}

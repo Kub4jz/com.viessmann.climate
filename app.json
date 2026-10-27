@@ -1,0 +1,968 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.viessmann.climate",
+  "version": "1.0.0",
+  "compatibility": ">=12.9.0",
+  "sdk": 3,
+  "brandColor": "#ff3e17",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Viessmann Ventilation"
+  },
+  "description": {
+    "en": "Adds support for Viessmann Vitoair FS units"
+  },
+  "category": [
+    "climate"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "permissions": [],
+  "author": {
+    "name": "Jakub H.",
+    "email": "kub4jz@gmail.com"
+  },
+  "flow": {
+    "conditions": [
+      {
+        "title": "Bypass !{{is|is not}} active",
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ],
+        "id": "bypass_open"
+      },
+      {
+        "title": "Ventilation !{{is|is not}} cooling",
+        "hint": {
+          "en": "Supply air is colder than extract air"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ],
+        "id": "cooling"
+      },
+      {
+        "title": "Frost protection !{{is|is not}} active",
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ],
+        "id": "frost_protection_active"
+      },
+      {
+        "title": {
+          "en": "Active program !{{is|is not}}"
+        },
+        "titleFormatted": {
+          "en": "Active program !{{is|is not}} [[program]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          },
+          {
+            "name": "program",
+            "title": {
+              "en": "Program"
+            },
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Select a program..."
+            }
+          }
+        ],
+        "id": "program_is"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Force refresh"
+        },
+        "titleFormatted": {
+          "en": "Force refresh values from server"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ],
+        "id": "force_sync"
+      },
+      {
+        "title": {
+          "en": "Run Quick Mode"
+        },
+        "titleFormatted": {
+          "en": "Run [[mode]]"
+        },
+        "duration": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          },
+          {
+            "name": "mode",
+            "title": {
+              "en": "Quick mode"
+            },
+            "type": "autocomplete"
+          }
+        ],
+        "id": "start_quick_mode"
+      },
+      {
+        "title": {
+          "en": "Stop Quick Mode"
+        },
+        "titleFormatted": {
+          "en": "Stop [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=vitoair-fs"
+          },
+          {
+            "name": "mode",
+            "title": {
+              "en": "Quick mode"
+            },
+            "type": "autocomplete"
+          }
+        ],
+        "id": "stop_quick_mode"
+      }
+    ],
+    "triggers": [
+      {
+        "id": "ventilation_active_program_changed",
+        "title": {
+          "en": "Ventilation program changed"
+        },
+        "highlight": true,
+        "tokens": [
+          {
+            "name": "ventilation_active_program",
+            "type": "string",
+            "title": {
+              "en": "program"
+            },
+            "example": "ventilation"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "ventilation_operating_level_changed",
+        "title": {
+          "en": "Ventilation level changed"
+        },
+        "highlight": true,
+        "tokens": [
+          {
+            "name": "ventilation_operating_level",
+            "type": "string",
+            "title": {
+              "en": "Level"
+            },
+            "example": "levelTwo"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "bypass_position_changed",
+        "title": {
+          "en": "Bypass position changed"
+        },
+        "tokens": [
+          {
+            "name": "bypass_position",
+            "type": "number",
+            "title": {
+              "en": "position (%)"
+            },
+            "example": 73
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "ventilation_heating_recovery_changed",
+        "title": {
+          "en": "Ventilation heating recovery changed"
+        },
+        "highlight": true,
+        "tokens": [
+          {
+            "name": "ventilation_heating_recovery",
+            "type": "number",
+            "title": {
+              "en": "heating recovery (%)"
+            },
+            "example": 58
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "filter_pollution_changed",
+        "title": {
+          "en": "Filter pollution changed"
+        },
+        "tokens": [
+          {
+            "name": "filter_pollution",
+            "type": "number",
+            "title": {
+              "en": "pollution (%)"
+            },
+            "example": 52
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature.extract_changed",
+        "title": {
+          "en": "Extract air temperature changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature.extract",
+            "type": "number",
+            "title": {
+              "en": "temperature"
+            },
+            "example": 21
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_humidity.extract_changed",
+        "title": {
+          "en": "Extract air humidity changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_humidity.extract",
+            "type": "number",
+            "title": {
+              "en": "humidity (%)"
+            },
+            "example": 55
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature.supply_changed",
+        "title": {
+          "en": "Supply air temperature changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature.supply",
+            "type": "number",
+            "title": {
+              "en": "temperature"
+            },
+            "example": 21
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_humidity.supply_changed",
+        "title": {
+          "en": "Supply air humidity changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_humidity.supply",
+            "type": "number",
+            "title": {
+              "en": "humidity"
+            },
+            "example": 55
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_fan_speed_rpm.exhaust_changed",
+        "title": {
+          "en": "Exhaust fan speed changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_fan_speed_rpm",
+            "type": "number",
+            "title": {
+              "en": "speed (RPM)"
+            },
+            "example": 1103
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_fan_speed_rpm.supply_changed",
+        "title": {
+          "en": "Supply fan speed changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_fan_speed_rpm",
+            "type": "number",
+            "title": {
+              "en": "speed (RPM)"
+            },
+            "example": 1103
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_volume_flow.input_changed",
+        "title": {
+          "en": "Input air volume flow changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_volume_flow",
+            "type": "number",
+            "title": {
+              "en": "Air flow (m³/h)"
+            },
+            "example": 125
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "measure_volume_flow.output_changed",
+        "title": {
+          "en": "Output air volume flow changed"
+        },
+        "tokens": [
+          {
+            "name": "measure_volume_flow",
+            "type": "number",
+            "title": {
+              "en": "Air flow (m³/h)"
+            },
+            "example": 125
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "alarm_generic.filter_change_true",
+        "title": {
+          "en": "Filter change needed"
+        },
+        "tokens": [
+          {
+            "name": "alarm_generic.filter_change",
+            "type": "boolean",
+            "title": {
+              "en": "Filter change"
+            },
+            "example": true
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "alarm_generic.filter_polluted_true",
+        "title": {
+          "en": "Filter polluted"
+        },
+        "tokens": [
+          {
+            "name": "alarm_generic.filter_polluted",
+            "type": "boolean",
+            "title": {
+              "en": "Filter polluted"
+            },
+            "example": true
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      },
+      {
+        "id": "ventilation_frost_protection_changed",
+        "title": {
+          "en": "Ventilation frost protection changed"
+        },
+        "tokens": [
+          {
+            "name": "ventilation_frost_protection",
+            "type": "boolean",
+            "title": {
+              "en": "Frost protection"
+            },
+            "example": "on"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=vitoair-fs"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Vitoair FS"
+      },
+      "class": "airtreatment",
+      "capabilities": [
+        "ventilation_active_program",
+        "ventilation_operating_mode",
+        "ventilation_operating_level",
+        "room_setpoint",
+        "supply_air_temperature",
+        "measure_temperature.extract",
+        "measure_humidity.extract",
+        "measure_temperature.supply",
+        "measure_humidity.supply",
+        "measure_temperature.exhaust",
+        "measure_humidity.exhaust",
+        "measure_temperature.outdoor",
+        "measure_humidity.outdoor",
+        "measure_volume_flow",
+        "bypass_position",
+        "filter_pollution",
+        "alarm_generic.filter_change",
+        "alarm_generic.filter_polluted",
+        "ventilation_heating_recovery",
+        "measure_fan_speed_rpm.exhaust",
+        "measure_fan_speed_rpm.supply",
+        "ventilation_frost_protection",
+        "measure_power"
+      ],
+      "capabilitiesOptions": {
+        "measure_humidity.extract": {
+          "title": {
+            "en": "Extract air humidity"
+          }
+        },
+        "measure_temperature.extract": {
+          "title": {
+            "en": "Extract air temperature"
+          }
+        },
+        "measure_humidity.outdoor": {
+          "title": {
+            "en": "Outdoor air humidity"
+          },
+          "uiComponent": null,
+          "preventInsights": true
+        },
+        "measure_temperature.outdoor": {
+          "title": {
+            "en": "Outdoor air temperature"
+          },
+          "uiComponent": null,
+          "preventInsights": true
+        },
+        "measure_humidity.exhaust": {
+          "title": {
+            "en": "Exhaust air humidity"
+          },
+          "uiComponent": null,
+          "preventInsights": true
+        },
+        "measure_temperature.exhaust": {
+          "title": {
+            "en": "Exhaust air temperature"
+          },
+          "uiComponent": null,
+          "preventInsights": true
+        },
+        "measure_humidity.supply": {
+          "title": {
+            "en": "Supply air humidity"
+          }
+        },
+        "measure_temperature.supply": {
+          "title": {
+            "en": "Supply air temperature"
+          }
+        },
+        "measure_fan_speed_rpm.exhaust": {
+          "title": {
+            "en": "Exhaust fan speed"
+          }
+        },
+        "measure_fan_speed_rpm.supply": {
+          "title": {
+            "en": "Supply fan speed"
+          }
+        },
+        "alarm_generic.filter_change": {
+          "title": {
+            "en": "Filter change"
+          }
+        },
+        "alarm_generic.filter_polluted": {
+          "title": {
+            "en": "Filter polluted"
+          },
+          "uiComponent": null
+        },
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "images": {
+        "small": "/drivers/vitoair-fs/assets/images/small.png",
+        "large": "/drivers/vitoair-fs/assets/images/large.png"
+      },
+      "id": "vitoair-fs",
+      "settings": [
+        {
+          "id": "pollution.alert.level",
+          "type": "number",
+          "label": {
+            "en": "Filter pollution alert level"
+          },
+          "value": 95,
+          "min": 0,
+          "max": 100,
+          "units": {
+            "en": "%"
+          }
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "bypass_position": {
+      "type": "number",
+      "title": {
+        "en": "Bypass position"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "icon": "/assets/icons/bypass.svg"
+    },
+    "filter_pollution": {
+      "type": "number",
+      "title": {
+        "en": "Filter polution"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "icon": "/assets/icons/measure_filter.svg"
+    },
+    "measure_fan_speed_rpm": {
+      "type": "number",
+      "title": {
+        "en": "Fan speed"
+      },
+      "uiComponent": null,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "RPM"
+      },
+      "min": 0,
+      "max": 2000,
+      "step": 1,
+      "icon": "/assets/icons/fan_speed.svg"
+    },
+    "measure_volume_flow": {
+      "type": "number",
+      "title": {
+        "en": "Air volume flow"
+      },
+      "units": {
+        "en": "m³/h"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/icons/measure_volume_flow.svg"
+    },
+    "room_setpoint": {
+      "type": "number",
+      "title": {
+        "en": "Room setpoint temperature"
+      },
+      "uiComponent": null,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "°C"
+      },
+      "min": 3,
+      "max": 37,
+      "step": 1
+    },
+    "supply_air_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Minimum supply air temperature"
+      },
+      "uiComponent": null,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "°C"
+      },
+      "min": 3,
+      "max": 37,
+      "step": 1
+    },
+    "ventilation_active_program": {
+      "type": "enum",
+      "title": {
+        "en": "Active program"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "values": [
+        {
+          "id": "schedule",
+          "title": {
+            "en": "Time program"
+          }
+        },
+        {
+          "id": "permanent",
+          "title": {
+            "en": "Constant"
+          }
+        },
+        {
+          "id": "ventilation",
+          "title": {
+            "en": "Ventilation"
+          }
+        },
+        {
+          "id": "sensorOverride",
+          "title": {
+            "en": "Automatic mode"
+          }
+        },
+        {
+          "id": "sensorDriven",
+          "title": {
+            "en": "Time program with sensor"
+          }
+        },
+        {
+          "id": "silent",
+          "title": {
+            "en": "Silent ventilation"
+          }
+        },
+        {
+          "id": "forcedLevelFour",
+          "title": {
+            "en": "Intensive ventilation"
+          }
+        },
+        {
+          "id": "temporaryShutdown",
+          "title": {
+            "en": "Temporary shutdown"
+          }
+        },
+        {
+          "id": "filterChange",
+          "title": {
+            "en": "Filter change"
+          }
+        },
+        {
+          "id": "standby",
+          "title": {
+            "en": "Off"
+          }
+        }
+      ],
+      "icon": "/assets/icons/operational_state.svg"
+    },
+    "ventilation_frost_protection": {
+      "type": "enum",
+      "title": {
+        "en": "Frost protection"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "values": [
+        {
+          "id": "on",
+          "title": {
+            "en": "On"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off"
+          }
+        }
+      ],
+      "icon": "/assets/icons/frost.svg"
+    },
+    "ventilation_heating_recovery": {
+      "type": "number",
+      "title": {
+        "en": "Heating recovery"
+      },
+      "uiComponent": null,
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "ventilation_operating_level": {
+      "type": "enum",
+      "title": {
+        "en": "Operating level"
+      },
+      "values": [
+        {
+          "id": "unknown",
+          "title": "-"
+        },
+        {
+          "id": "levelOne",
+          "title": "1"
+        },
+        {
+          "id": "levelTwo",
+          "title": "2"
+        },
+        {
+          "id": "levelThree",
+          "title": "3"
+        },
+        {
+          "id": "levelFour",
+          "title": "4"
+        }
+      ],
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/icons/dim.svg"
+    },
+    "ventilation_operating_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Operating mode"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "values": [
+        {
+          "id": "unknown",
+          "title": {
+            "en": "-"
+          }
+        },
+        {
+          "id": "standby",
+          "title": {
+            "en": "Off"
+          }
+        },
+        {
+          "id": "permanent",
+          "title": {
+            "en": "Constant"
+          }
+        },
+        {
+          "id": "ventilation",
+          "title": {
+            "en": "Time program"
+          }
+        },
+        {
+          "id": "sensorOverride",
+          "title": {
+            "en": "Time program with sensor"
+          }
+        },
+        {
+          "id": "sensorDriven",
+          "title": {
+            "en": "Sensor based"
+          }
+        }
+      ],
+      "icon": "/assets/icons/operational_state.svg"
+    }
+  }
+}

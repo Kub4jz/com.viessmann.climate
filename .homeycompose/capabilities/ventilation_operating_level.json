@@ -1,0 +1,32 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Operating level"
+  },
+  "values": [
+    {
+      "id": "unknown",
+      "title": "-"
+    },
+    {
+      "id": "levelOne",
+      "title": "1"
+    },
+    {
+      "id": "levelTwo",
+      "title": "2"
+    },
+    {
+      "id": "levelThree",
+      "title": "3"
+    },
+    {
+      "id": "levelFour",
+      "title": "4"
+    }
+  ],
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/icons/dim.svg"
+}

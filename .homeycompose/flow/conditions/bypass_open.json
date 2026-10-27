@@ -1,0 +1,10 @@
+{
+  "title": "Bypass !{{is|is not}} active",
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=vitoair-fs"
+    }
+  ]
+}

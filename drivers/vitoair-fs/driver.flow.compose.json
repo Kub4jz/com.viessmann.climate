@@ -1,0 +1,187 @@
+{
+  "triggers": [
+    {
+      "id": "ventilation_active_program_changed",
+      "title": { "en": "Ventilation program changed" },
+      "highlight": true,
+      "tokens": [
+        {
+          "name": "ventilation_active_program",
+          "type": "string",
+          "title": { "en": "program" },
+          "example": "ventilation"
+        }
+      ]
+    },
+    {
+      "id": "ventilation_operating_level_changed",
+      "title": { "en": "Ventilation level changed" },
+      "highlight": true,
+      "tokens": [
+        {
+          "name": "ventilation_operating_level",
+          "type": "string",
+          "title": { "en": "Level" },
+          "example": "levelTwo"
+        }
+      ]
+    },
+    {
+      "id": "bypass_position_changed",
+      "title": { "en": "Bypass position changed" },
+      "tokens": [
+        {
+          "name": "bypass_position",
+          "type": "number",
+          "title": { "en": "position (%)" },
+          "example": 73
+        }
+      ]
+    },
+    {
+      "id": "ventilation_heating_recovery_changed",
+      "title": { "en": "Ventilation heating recovery changed" },
+      "highlight": true,
+      "tokens": [
+        {
+          "name": "ventilation_heating_recovery",
+          "type": "number",
+          "title": { "en": "heating recovery (%)" },
+          "example": 58
+        }
+      ]
+    },
+    {
+      "id": "filter_pollution_changed",
+      "title": { "en": "Filter pollution changed" },
+      "tokens": [
+        {
+          "name": "filter_pollution",
+          "type": "number",
+          "title": { "en": "pollution (%)" },
+          "example": 52
+        }
+      ]
+    },
+    {
+      "id": "measure_temperature.extract_changed",
+      "title": { "en": "Extract air temperature changed" },
+      "tokens": [
+        {
+          "name": "measure_temperature.extract",
+          "type": "number",
+          "title": { "en": "temperature" },
+          "example": 21
+        }
+      ]
+    },
+    {
+      "id": "measure_humidity.extract_changed",
+      "title": { "en": "Extract air humidity changed" },
+      "tokens": [
+        {
+          "name": "measure_humidity.extract",
+          "type": "number",
+          "title": { "en": "humidity (%)" },
+          "example": 55
+        }
+      ]
+    },
+    {
+      "id": "measure_temperature.supply_changed",
+      "title": { "en": "Supply air temperature changed" },
+      "tokens": [
+        {
+          "name": "measure_temperature.supply",
+          "type": "number",
+          "title": { "en": "temperature" },
+          "example": 21
+        }
+      ]
+    },
+    {
+      "id": "measure_humidity.supply_changed",
+      "title": { "en": "Supply air humidity changed" },
+      "tokens": [
+        {
+          "name": "measure_humidity.supply",
+          "type": "number",
+          "title": { "en": "humidity" },
+          "example": 55
+        }
+      ]
+    },
+    {
+      "id": "measure_fan_speed_rpm.exhaust_changed",
+      "title": { "en": "Exhaust fan speed changed" },
+      "tokens": [
+        {
+          "name": "measure_fan_speed_rpm",
+          "type": "number",
+          "title": { "en": "speed (RPM)" },
+          "example": 1103
+        }
+      ]
+    },
+    {
+      "id": "measure_fan_speed_rpm.supply_changed",
+      "title": { "en": "Supply fan speed changed" },
+      "tokens": [
+        {
+          "name": "measure_fan_speed_rpm",
+          "type": "number",
+          "title": { "en": "speed (RPM)" },
+          "example": 1103
+        }
+      ]
+    },
+    {
+      "id": "measure_volume_flow_changed",
+      "title": { "en": "Air volume flow changed" },
+      "tokens": [
+        {
+          "name": "measure_volume_flow",
+          "type": "number",
+          "title": { "en": "Air flow (m³/h)" },
+          "example": 125
+        }
+      ]
+    },
+    {
+      "id": "alarm_generic.filter_change_true",
+      "title": { "en": "Filter change needed" },
+      "tokens": [
+        {
+          "name": "alarm_generic.filter_change",
+          "type": "boolean",
+          "title": { "en": "Filter change" },
+          "example": true
+        }
+      ]
+    },
+    {
+      "id": "alarm_generic.filter_polluted_true",
+      "title": { "en": "Filter polluted" },
+      "tokens": [
+        {
+          "name": "alarm_generic.filter_polluted",
+          "type": "boolean",
+          "title": { "en": "Filter polluted" },
+          "example": true
+        }
+      ]
+    },
+    {
+      "id": "ventilation_frost_protection_changed",
+      "title": { "en": "Ventilation frost protection changed" },
+      "tokens": [
+        {
+          "name": "ventilation_frost_protection",
+          "type": "boolean",
+          "title": { "en": "Frost protection" },
+          "example": "on"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "ventilation": "Ventilation",
+  "levelOne": "1",
+  "levelTwo": "2",
+  "levelThree": "3",
+  "levelFour": "4",
+  "modes": {
+    "sensorDriven": "Time program with sensor",
+    "sensorOverride": "Automatic mode",
+    "ventilation": "Time schedule",
+    "permanent": "Constant mode",
+    "filterChange": "Filter change"
+  },
+  "quickmodes": {
+    "forcedLevelFour": "Intensive ventilation",
+    "silent": "Silent ventilation",
+    "temporaryShutdown": "Temporary shutdown"
+  },
+  "settings": {
+    "title": "Settings"
+  }
+}

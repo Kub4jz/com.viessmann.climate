@@ -1,0 +1,13 @@
+{
+  "title": "Ventilation !{{is|is not}} cooling",
+  "hint": {
+    "en": "Supply air is colder than extract air"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=vitoair-fs"
+    }
+  ]
+}

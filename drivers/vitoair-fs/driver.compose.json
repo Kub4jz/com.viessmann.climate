@@ -1,0 +1,132 @@
+{
+  "name": {
+    "en": "Vitoair FS"
+  },
+  "class": "airtreatment",
+  "capabilities": [
+    "ventilation_active_program",
+    "ventilation_operating_mode",
+    "ventilation_operating_level",
+    "room_setpoint",
+    "supply_air_temperature",
+    "measure_temperature.extract",
+    "measure_humidity.extract",
+    "measure_temperature.supply",
+    "measure_humidity.supply",
+    "measure_temperature.exhaust",
+    "measure_humidity.exhaust",
+    "measure_temperature.outdoor",
+    "measure_humidity.outdoor",
+    "measure_volume_flow",
+    "bypass_position",
+    "filter_pollution",
+    "alarm_generic.filter_change",
+    "alarm_generic.filter_polluted",
+    "ventilation_heating_recovery",
+    "measure_fan_speed_rpm.exhaust",
+    "measure_fan_speed_rpm.supply",
+    "ventilation_frost_protection",
+    "measure_power"
+  ],
+  "capabilitiesOptions": {
+    "measure_humidity.extract": {
+      "title": {
+        "en": "Extract air humidity"
+      }
+    },
+    "measure_temperature.extract": {
+      "title": {
+        "en": "Extract air temperature"
+      }
+    },
+    "measure_humidity.outdoor": {
+      "title": {
+        "en": "Outdoor air humidity"
+      },
+      "uiComponent": null,
+      "preventInsights": true
+    },
+    "measure_temperature.outdoor": {
+      "title": {
+        "en": "Outdoor air temperature"
+      },
+      "uiComponent": null,
+      "preventInsights": true
+    },
+    "measure_humidity.exhaust": {
+      "title": {
+        "en": "Exhaust air humidity"
+      },
+      "uiComponent": null,
+      "preventInsights": true
+    },
+    "measure_temperature.exhaust": {
+      "title": {
+        "en": "Exhaust air temperature"
+      },
+      "uiComponent": null,
+      "preventInsights": true
+    },
+    "measure_humidity.supply": {
+      "title": {
+        "en": "Supply air humidity"
+      }
+    },
+    "measure_temperature.supply": {
+      "title": {
+        "en": "Supply air temperature"
+      }
+    },
+    "measure_fan_speed_rpm.exhaust": {
+      "title": {
+        "en": "Exhaust fan speed"
+      }
+    },
+    "measure_fan_speed_rpm.supply": {
+      "title": {
+        "en": "Supply fan speed"
+      }
+    },
+    "alarm_generic.filter_change": {
+      "title": {
+        "en": "Filter change"
+      }
+    },
+    "alarm_generic.filter_polluted": {
+      "title": {
+        "en": "Filter polluted"
+      },
+      "uiComponent": null
+    },
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "pair": [
+    {
+      "id": "login_oauth2",
+      "template": "login_oauth2"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login_oauth2",
+      "template": "login_oauth2"
+    }
+  ],
+  "images": {
+    "small": "/drivers/vitoair-fs/assets/images/small.png",
+    "large": "/drivers/vitoair-fs/assets/images/large.png"
+  }
+}
