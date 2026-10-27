@@ -38,46 +38,18 @@ export class VitoairFsDevice extends ViessmannDevice {
         return VitoairFsDevice.FEATURES_FILTERS;
     }
 
-    async activateQuickMode(featureName: string, params: any) {
+    async activateQuickMode(featureName: string, params: any = {}) {
         this.log('Starting quick mode', featureName);
 
-        if (params === undefined) {
-            params = {};
-        }
-
-        try {
-            await this.triggerFeatureCommand(
-                featureName,
-                'activate',
-                params
-            );
-        } catch (e) {
-            this.error(e);
-
-            return false;
-        }
+        await this.triggerFeatureCommand(featureName, 'activate', params);
 
         return true;
     }
 
-    async deactivateQuickMode(featureName: string, params: any) {
+    async deactivateQuickMode(featureName: string, params: any = {}) {
         this.log('Stopping quick mode', featureName);
 
-        if (params === undefined) {
-            params = {};
-        }
-
-        try {
-            await this.triggerFeatureCommand(
-                featureName,
-                'deactivate',
-                params
-            );
-        } catch (e) {
-            this.error(e);
-
-            return false;
-        }
+        await this.triggerFeatureCommand(featureName, 'deactivate', params);
 
         return true;
     }
@@ -138,6 +110,10 @@ export class VitoairFsDevice extends ViessmannDevice {
     async isCooling() {
         const supplyAir = this.getCapabilityValue('measure_temperature.supply');
         const extractAir = this.getCapabilityValue('measure_temperature.extract');
+
+        if (typeof supplyAir !== 'number' || typeof extractAir !== 'number') {
+            return false;
+        }
 
         return supplyAir < extractAir;
     }

@@ -37,11 +37,17 @@ export class ViessmannOAuth2Client extends OAuth2Client<ViessmannOAuth2Client> {
         this._codeChallenge = codeChallenge[1]
     }
 
+    private reloadClientId() {
+        this._clientId = this.homey.settings.get('clientId') ?? '';
+    }
+
     async onHandleNotOK({body}: {body: any}) {
         throw new OAuth2Error(body.error);
     }
 
     onHandleAuthorizationURL({scopes, state}: any) {
+        this.reloadClientId();
+
         const query = {
             state,
             client_id: this._clientId,
@@ -57,6 +63,7 @@ export class ViessmannOAuth2Client extends OAuth2Client<ViessmannOAuth2Client> {
 
     async onGetTokenByCode({code}: {code: string}) {
         this.log('Getting token by code');
+        this.reloadClientId();
 
         const body = new URLSearchParams();
         body.append('grant_type', 'authorization_code');
