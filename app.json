@@ -415,32 +415,9 @@
         ]
       },
       {
-        "id": "measure_volume_flow.input_changed",
+        "id": "measure_volume_flow_changed",
         "title": {
-          "en": "Input air volume flow changed"
-        },
-        "tokens": [
-          {
-            "name": "measure_volume_flow",
-            "type": "number",
-            "title": {
-              "en": "Air flow (m³/h)"
-            },
-            "example": 125
-          }
-        ],
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=vitoair-fs"
-          }
-        ]
-      },
-      {
-        "id": "measure_volume_flow.output_changed",
-        "title": {
-          "en": "Output air volume flow changed"
+          "en": "Air volume flow changed"
         },
         "tokens": [
           {

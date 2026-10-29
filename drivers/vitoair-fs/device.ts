@@ -25,8 +25,7 @@ export class VitoairFsDevice extends ViessmannDevice {
         this.homey.flow.getDeviceTriggerCard('filter_pollution_changed');
         this.homey.flow.getDeviceTriggerCard('measure_fan_speed_rpm.exhaust_changed');
         this.homey.flow.getDeviceTriggerCard('measure_fan_speed_rpm.supply_changed');
-        this.homey.flow.getDeviceTriggerCard('measure_volume_flow.input_changed');
-        this.homey.flow.getDeviceTriggerCard('measure_volume_flow.output_changed');
+        this.homey.flow.getDeviceTriggerCard('measure_volume_flow_changed');
         this.homey.flow.getDeviceTriggerCard('alarm_generic.filter_change_true');
         this.homey.flow.getDeviceTriggerCard('alarm_generic.filter_polluted_true');
     }
