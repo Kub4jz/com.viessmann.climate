@@ -27,6 +27,10 @@
     "name": "Jakub H.",
     "email": "kub4jz@gmail.com"
   },
+  "source": "https://github.com/Kub4jz/com.viessmann.climate",
+  "bugs": {
+    "url": "https://github.com/Kub4jz/com.viessmann.climate/issues"
+  },
   "flow": {
     "conditions": [
       {
