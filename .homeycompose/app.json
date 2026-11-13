@@ -1,6 +1,6 @@
 {
   "id": "com.viessmann.climate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=12.9.0",
   "sdk": 3,
   "brandColor": "#ff3e17",
