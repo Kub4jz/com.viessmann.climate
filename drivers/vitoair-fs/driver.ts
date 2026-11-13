@@ -14,18 +14,18 @@ class VitoAirFsDriver extends OAuth2Driver {
 
         this.homey.flow.getConditionCard('program_is')
             .registerArgumentAutocompleteListener(
-                'program',
+                'active_program',
                 async (query: string, args: any) => {
                     const device: VitoairFsDevice = args.device;
 
-                    return device.programAutocomplete(query, args);
+                    return device.activeProgramAutocomplete(query);
                 })
             .registerRunListener(async (args: any, state: any) => {
                 const device: VitoairFsDevice = args.device;
 
-                this.log('Condition: is program active', args.program);
+                this.log('Condition: is program active', args.active_program);
 
-                return device.isProgramActive(args.program);
+                return device.isProgramActive(args.active_program.id);
             });
 
         this.homey.flow.getConditionCard('cooling')

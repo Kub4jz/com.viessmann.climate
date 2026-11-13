@@ -74,7 +74,7 @@
           "en": "Active program !{{is|is not}}"
         },
         "titleFormatted": {
-          "en": "Active program !{{is|is not}} [[program]]"
+          "en": "Active program !{{is|is not}} [[active_program]]"
         },
         "args": [
           {
@@ -83,7 +83,7 @@
             "filter": "driver_id=vitoair-fs"
           },
           {
-            "name": "program",
+            "name": "active_program",
             "title": {
               "en": "Program"
             },

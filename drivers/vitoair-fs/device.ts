@@ -102,6 +102,16 @@ export class VitoairFsDevice extends ViessmannDevice {
         });
     }
 
+    async activeProgramAutocomplete(query: string) {
+        const lang = this.homey.i18n.getLanguage();
+        const values: { id: string, title: Record<string, string> }[] =
+            this.homey.manifest.capabilities.ventilation_active_program.values;
+
+        return values
+            .map(({ id, title }) => ({ id, name: title[lang] ?? title.en ?? id }))
+            .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()));
+    }
+
     async isProgramActive(programId: string) {
         return this.getCapabilityValue('ventilation_active_program') === programId;
     }
